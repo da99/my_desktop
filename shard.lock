@@ -2,7 +2,7 @@ version: 1.0
 shards:
   da:
     git: file:///apps/da
-    commit: 52b17e6a86a50ffa4074f24f965cbc68e85b4288
+    commit: 45fe733b2fa83eb08916d8f2524156b10fb9129b
 
   da_spec:
     github: da99/da_spec
