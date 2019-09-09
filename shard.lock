@@ -1,0 +1,18 @@
+version: 1.0
+shards:
+  da:
+    git: file:///apps/da
+    commit: 52b17e6a86a50ffa4074f24f965cbc68e85b4288
+
+  da_spec:
+    github: da99/da_spec
+    version: 1.1.0
+
+  pool:
+    github: ysbaddaden/pool
+    version: 0.2.3
+
+  redis:
+    github: stefanwille/crystal-redis
+    version: 2.3.0
+

@@ -1,0 +1,12 @@
+name: my_desktop
+version: 0.0.0
+dependencies:
+  da:
+    git: file:///apps/da
+    branch: master
+  redis:
+    github: stefanwille/crystal-redis
+    version: ~> 2.3.0
+development_dependencies:
+  da_spec:
+    github: da99/da_spec
