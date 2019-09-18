@@ -1,0 +1,9 @@
+#!/bin/sh
+
+exec 2>&1
+
+echo "=== Starting sv/publish_volume: $(date)"
+
+set -x
+cd /apps/my_desktop
+exec bin/my_desktop publish_volume

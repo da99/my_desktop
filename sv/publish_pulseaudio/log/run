@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+#
+# exec logger -p daemon.notice -t www_paradise
+set -u -e
+sv_log_dir=/progs/logs/publish_pulseaudio
+mkdir -p        $sv_log_dir
+exec svlogd -tt $sv_log_dir
