@@ -2,3 +2,7 @@
 /.crystal/
 /tmp/
 /lib/
+
+
+/sv/*/supervise
+/sv/*/log/supervise
