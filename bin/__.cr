@@ -4,6 +4,10 @@ require "../src/my_desktop"
 full_cmd = ARGV.map(&.strip).join(' ')
 
 case
+when full_cmd == "top_hud"
+  # === {{CMD}} top_hud
+  MY_DESKTOP.top_hud
+
 when full_cmd == "publish_bspwm"
   # === {{CMD}} publish_bspwm
   MY_DESKTOP.publish_bspwm
@@ -50,8 +54,10 @@ when full_cmd[/^runit /]?
   `chmod +x sv/#{name}/run`
   `chmod +x sv/#{name}/log/run`
   Process.exec "tree", ["sv/#{name}"]
+
 else
   DA.orange! "!!! Unknown command: {{#{full_cmd}}}"
   Process.exit 1
 
 end # case
+

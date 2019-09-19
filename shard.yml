@@ -1,5 +1,6 @@
 name: my_desktop
 version: 0.0.0
+
 targets:
   my_desktop:
     main: bin/__.cr
