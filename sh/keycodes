@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+#
+#
+set -u -e -o pipefail -x
+
+sudo udevadm hwdb --update
+sudo udevadm trigger
