@@ -40,7 +40,7 @@ module I3
 
   class Window_Properties
     JSON.mapping(
-      _class: {type: String, key: "class"}
+      _class: {type: String, key: "class"},
       instance: String,
       title: String,
       transient_for: {type: Int32, nilable: true}
@@ -103,6 +103,10 @@ module I3
 
     def geometry
       node!.rect
+    end # def
+
+    def window_class
+      raw.nodes.first.not_nil!.window_properties.not_nil!._class
     end # def
   end # === struct
 
