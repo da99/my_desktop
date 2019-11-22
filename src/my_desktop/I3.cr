@@ -40,7 +40,7 @@ module I3
 
   class Window_Properties
     JSON.mapping(
-      class: String,
+      _class: {type: String, key: "class"}
       instance: String,
       title: String,
       transient_for: {type: Int32, nilable: true}
