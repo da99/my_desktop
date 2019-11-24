@@ -108,6 +108,27 @@ module I3
     def window_class
       raw.nodes.first.not_nil!.window_properties.not_nil!._class
     end # def
+
+    def window_id
+      raw.nodes.first.not_nil!.window
+    end # def
+
+    def browser?
+      {"Chromium","Firefox"}.includes? window_class
+    end # def
+
+    def media_player?
+      {"smplayer", "vlc"}.includes? window_class
+    end # def
+
+    def terminal?
+      {"Gnome-terminal"}.includes? window_class
+    end # def
+
+    def geometry
+      @raw.rect.not_nil!
+    end # def
+
   end # === struct
 
   struct Workspace
@@ -208,6 +229,24 @@ module I3
   end # === struct
 
   extend self
+
+  # In case there is no focused window, we use i3-msg.
+  # 'i3-msg -t get_tree' only tells us which window is focused, not workspace.
+  def current_workspace
+    workspace_name, output_name = `i3-msg -t get_workspaces | jq '.[] | select(.focused=true) | .name, .output' --raw-output`.strip.split
+    found = nil
+    Root.new.outputs.find { |o|
+      next unless o.name == output_name
+      o.workspaces.find { |w|
+        if w.name == workspace_name
+          found = w
+          true
+        end
+      }
+    }
+
+    found
+  end # def
 
   def current_window
     r = Root.new
