@@ -23,10 +23,10 @@ module I3
 
   class Geometry
     JSON.mapping(
-      x: Int32,
-      y: Int32,
-      width: Int32,
-      height: Int32
+      x: Int64,
+      y: Int64,
+      width: Int64,
+      height: Int64
     )
 
     def w
@@ -49,7 +49,7 @@ module I3
 
   class Node
     JSON.mapping(
-      id:                   Int32,
+      id:                   Int64,
       name:                 {type: String, nilable: true},
       type:                 String,
       border:               String,
@@ -64,7 +64,7 @@ module I3
       window_properties:    {type: Window_Properties, nilable: true},
       urgent:               Bool,
       focused:              Bool,
-      focus:                Array(Int32),
+      focus:                Array(Int64),
       nodes:                Array(Node),
       floating_nodes:       Array(Node)
     )
